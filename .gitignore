@@ -37,5 +37,5 @@ out/
 .vscode/
 
 ### Docker DB Data ###
-./docker/db/
-./docker/redis/
+/docker/db/
+/docker/redis/
