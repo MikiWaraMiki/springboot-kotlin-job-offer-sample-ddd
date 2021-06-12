@@ -3,8 +3,8 @@ title "DDD勉強用求人システムユースケース"
 'https://plantuml.com/use-case-diagram
 left to right direction
 
-:求人募集者: as Client
-:求人応募者: as User
+:クライアント: as Client
+:ユーザー: as User
 
 (求人情報を作成する) as (CreateJobOffer)
 (求人情報を編集する) as (EditJobOffer)
