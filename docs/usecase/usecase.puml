@@ -1,4 +1,5 @@
 @startuml
+title "DDD勉強用求人システムユースケース"
 'https://plantuml.com/use-case-diagram
 left to right direction
 
