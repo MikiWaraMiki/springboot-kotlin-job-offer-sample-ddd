@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+
+:求人募集者: as Client
+:求人応募者: as User
+
+(求人情報を作成する) as (CreateJobOffer)
+(求人情報を編集する) as (EditJobOffer)
+(求人情報を公開する) as (PublicJobOffer)
+(求人情報を下書きする) as (DraftJobOffer)
+(応募者を確認する) as (ShowJobApplicationUserList)
+(求人一覧を閲覧する) as (ShowJobOfferList)
+(求人詳細を閲覧する) as (ShowJobOffer)
+(求人情報に応募する) as (JobApplication)
+(応募した求人情報を確認する) as (ShowJobApplicationHistory)
+
+(CreateJobOffer) <-- Client
+(CreateJobOffer) .> (DraftJobOffer)
+(CreateJobOffer) .> (PublicJobOffer)
+(EditJobOffer) <-- Client
+(EditJobOffer) .> (PublicJobOffer)
+(EditJobOffer) .> (DraftJobOffer)
+(ShowJobApplicationUserList) <-- Client
+
+User --> (ShowJobOfferList)
+User --> (ShowJobOffer)
+(ShowJobOffer) .> (JobApplication)
+User --> (ShowJobApplicationHistory)
+
+note left of (CreateJobOffer) : 公開か下書き保存する
+note left of (EditJobOffer) : 公開か下書き保存する
+note right of (ShowJobOfferList) : 公開された求人のみ確認できる
+note right of (ShowJobApplicationHistory) : 応募していれば求人が下書きになっても確認できる\nただし情報は、応募した時点での情報を表示
+@enduml
