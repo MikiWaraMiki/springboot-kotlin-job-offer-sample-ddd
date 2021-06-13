@@ -1,6 +1,7 @@
 import { NuxtConfig } from '@nuxt/types'
 
 const config: NuxtConfig = {
+  srcDir: 'src/',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'job-offer-front',
@@ -42,6 +43,19 @@ const config: NuxtConfig = {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  auth: {
+    strategies: {
+      auth0: {
+      }
+    },
+    redirect: {
+      login: '/',
+      logout: '/logout',
+      callback: '/callback',
+      home: '/dashboard'
+    }
+  }
 }
 
 export default config

@@ -39,3 +39,4 @@ out/
 ### Docker DB Data ###
 /docker/db/
 /docker/redis/
+/docker/nuxt/env/.env.development

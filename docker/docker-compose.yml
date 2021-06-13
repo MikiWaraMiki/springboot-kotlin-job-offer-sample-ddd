@@ -8,6 +8,8 @@ services:
       - '3000:3000'
     volumes:
       - ../front/job-offer-front:/usr/src/app
+    env_file:
+      - './nuxt/env/.env.development'
   db:
     image: mysql:5.7
     environment:
