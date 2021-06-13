@@ -1,5 +1,13 @@
 version: "3"
 services:
+  nuxt:
+    build:
+      context: ..
+      dockerfile: ./docker/nuxt/Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - ../front/job-offer-front:/usr/src/app
   db:
     image: mysql:5.7
     environment:
