@@ -1,0 +1,108 @@
+@startuml
+'https://plantuml.com/class-diagram
+left to right direction
+
+namespace auth {
+    namespace controller {
+        namespace user {
+            class UserController {
+                signIn(userSignInRequest: userSignInRequest): UserSignInResponse
+                registration(userRegistrationRequest: UserRegistrationRequest): UserRegistrationResponse
+            }
+            class UserSignInRequest {
+                token: string
+            }
+            class UserResponseRequest {
+                email: string
+                token: string
+            }
+            class UserRegistrationRequest {
+                email: string
+                token: string
+                registrationType: string
+            }
+        }
+    }
+    namespace usecase {
+        namespace user {
+            namespace login {
+                class UserLogin {
+                    signInUser(userSignInRequest: UserSignInRequest): UserSignInResponse
+                }
+            }
+            namespace registration {
+                class UserRegistration {
+                    registrationUser(userRegistrationRequest: UserRegistrationRequest): UserRegistrationResponse
+                }
+            }
+        }
+    }
+    namespace domain {
+        namespace model {
+            namespace user {
+                class User {
+                    userId: UserID
+                    mail: UserMail
+                }
+                class UserID {
+                    +id: string
+                }
+                class UserAuthToken {
+                    +token: string
+                }
+                class Mail {
+                    +address: string
+                    changeMail()
+                }
+                class UserRole {
+                    +userId: UserID
+                    +roleId: bigint
+                }
+                interface IFUserRepository {
+                    findById(uuid: UserId)
+                    findByEmail(mail: Mail)
+                }
+                interface IFUserRoleRepository {
+                    addRole(user: User, role: Role)
+                }
+            }
+            namespace role {
+                class Role {
+                    id: bigint
+                    name: string
+                }
+            }
+            namespace service {
+                class UserRoleService {
+                    hasRole(user: User, role: Role): Boolean
+                }
+            }
+        }
+   }
+   namespace repository {
+        namespace mysql {
+            namespace user {
+
+                class UserRepository {
+                    +findById(uuid: UserId): User
+                    +findByEmail(mail: mail): User
+                    +insertUser(user: User): User
+                    -convertModel(): User
+                }
+                class UserRoleRepository {
+                    +addRole(user: User, role:Role): void
+                }
+            }
+        }
+   }
+}
+'implements
+auth.domain.model.user.IFUserRepository <|.right. auth.repository.mysql.user.UserRepository
+auth.domain.model.user.IFUserRoleRepository <|.right. auth.repository.mysql.user.UserRoleRepository
+' has one
+auth.domain.model.user.User *-up- auth.domain.model.user.UserID
+auth.domain.model.user.User *-up- auth.domain.model.user.Mail
+auth.domain.model.user.User *-up- auth.domain.model.user.UserRole
+auth.domain.model.user.User *-up- auth.domain.model.user.UserAuthToken
+auth.domain.model.user.UserRole *-left- auth.domain.model.role.Role
+@enduml
