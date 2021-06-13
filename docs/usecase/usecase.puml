@@ -6,16 +6,24 @@ left to right direction
 :クライアント: as Client
 :ユーザー: as User
 
-(求人情報を作成する) as (CreateJobOffer)
-(求人情報を編集する) as (EditJobOffer)
-(求人情報を公開する) as (PublicJobOffer)
-(求人情報を下書きする) as (DraftJobOffer)
-(応募者を確認する) as (ShowJobApplicationUserList)
-(求人一覧を閲覧する) as (ShowJobOfferList)
-(求人詳細を閲覧する) as (ShowJobOffer)
-(求人情報に応募する) as (JobApplication)
-(応募した求人情報を確認する) as (ShowJobApplicationHistory)
+rectangle 認証・認可コンテキスト {
+    (システムに会員登録する) as (UserRegistration)
+    (求人募集システムにログインする) as (ClientSignIn)
+    (求人応募システムにログインする) as (UserSignIn)
+}
+(UserRegistration) <-- Client
+User --> (UserRegistration)
+(ClientSignIn) <-- Client
+User --> (UserSignIn)
 
+
+rectangle 求人募集コンテキスト {
+    (求人情報を作成する) as (CreateJobOffer)
+    (求人情報を編集する) as (EditJobOffer)
+    (求人情報を公開する) as (PublicJobOffer)
+    (求人情報を下書きする) as (DraftJobOffer)
+    (応募者を確認する) as (ShowJobApplicationUserList)
+}
 (CreateJobOffer) <-- Client
 (CreateJobOffer) .> (DraftJobOffer)
 (CreateJobOffer) .> (PublicJobOffer)
@@ -24,10 +32,18 @@ left to right direction
 (EditJobOffer) .> (DraftJobOffer)
 (ShowJobApplicationUserList) <-- Client
 
+rectangle 求人応募コンテキスト {
+    (求人一覧を閲覧する) as (ShowJobOfferList)
+    (求人詳細を閲覧する) as (ShowJobOffer)
+    (求人情報に応募する) as (JobApplication)
+    (プロフィールを更新する) as (EditProfile)
+    (応募した求人情報を確認する) as (ShowJobApplicationHistory)
+}
 User --> (ShowJobOfferList)
 User --> (ShowJobOffer)
-(ShowJobOffer) .> (JobApplication)
+User --> (EditProfile)
 User --> (ShowJobApplicationHistory)
+(ShowJobOffer) .> (JobApplication)
 
 note left of (CreateJobOffer) : 公開か下書き保存する
 note left of (EditJobOffer) : 公開か下書き保存する
