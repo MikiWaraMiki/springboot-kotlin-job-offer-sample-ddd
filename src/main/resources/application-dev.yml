@@ -1,0 +1,16 @@
+spring:
+  flyway:
+    enabled: true
+    table: schema_version
+    locations: classpath:db/migration
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/job_offer_dev
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+logging:
+  level:
+    root: INFO
+    org.srpingframework.web: DEBUG
