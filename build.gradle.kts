@@ -13,6 +13,7 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
 	mavenCentral()
+	maven { url = uri("https://jitpack.io") }
 }
 
 dependencies {
@@ -28,6 +29,7 @@ dependencies {
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0")
 	implementation("org.springframework.session:spring-session-data-redis")
 	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")
+	implementation("com.github.guepardoapps:kulid:2.0.0.0")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
