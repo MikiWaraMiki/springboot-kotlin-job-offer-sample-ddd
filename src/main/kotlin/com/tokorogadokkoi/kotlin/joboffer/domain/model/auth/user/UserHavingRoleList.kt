@@ -1,6 +1,6 @@
-package com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user
+package com.tokorogadokkoi.kotlin.joboffer.domain.model.auth.user
 
-import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.role.Role
+import com.tokorogadokkoi.kotlin.joboffer.domain.model.auth.role.Role
 
 /**
  * ユーザが保持するロール

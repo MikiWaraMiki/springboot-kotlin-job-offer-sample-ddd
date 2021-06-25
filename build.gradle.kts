@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "2.5.0"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	id("com.arenagod.gradle.MybatisGenerator") version "1.4"
 	kotlin("jvm") version "1.5.10"
 	kotlin("plugin.spring") version "1.5.10"
 }
@@ -27,11 +28,13 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0")
+	implementation("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.2.1")
+	mybatisGenerator("org.mybatis.generator:mybatis-generator-core:1.4.0")
 	implementation("org.springframework.session:spring-session-data-redis")
 	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")
 	implementation("com.github.guepardoapps:kulid:2.0.0.0")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	runtimeOnly("mysql:mysql-connector-java")
+	implementation("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 }
@@ -45,4 +48,14 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+mybatisGenerator {
+	verbose = true
+	overwrite = true
+	configFile= "${projectDir}/src/main/resources/mybatis/generatorConfig.xml"
+
+	dependencies {
+		mybatisGenerator("mysql:mysql-connector-java")
+	}
 }

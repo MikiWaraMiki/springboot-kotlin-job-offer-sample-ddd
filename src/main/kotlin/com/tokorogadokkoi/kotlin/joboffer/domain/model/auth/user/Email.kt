@@ -1,4 +1,4 @@
-package com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user
+package com.tokorogadokkoi.kotlin.joboffer.domain.model.auth.user
 
 import kotlin.IllegalArgumentException
 

@@ -1,4 +1,4 @@
-package com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.role
+package com.tokorogadokkoi.kotlin.joboffer.domain.model.auth.role
 
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.DisplayName
