@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS users_roles (
-    user_uuid BINARY(16) NOT NULL,
+    user_uuid CHAR(26) NOT NULL,
     role_id bigint NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
