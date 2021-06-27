@@ -1,0 +1,15 @@
+package com.tokorogadokkoi.kotlin.joboffer.config.mybatis
+
+import org.springframework.boot.context.properties.ConfigurationProperties
+import org.springframework.context.annotation.Configuration
+import org.springframework.stereotype.Component
+
+@Component
+@Configuration
+@ConfigurationProperties(prefix = "spring.datasource")
+class MyBatisPropertyHolder {
+    lateinit var username: String
+    lateinit var password: String
+    lateinit var url: String
+    lateinit var driverClassName: String
+}
