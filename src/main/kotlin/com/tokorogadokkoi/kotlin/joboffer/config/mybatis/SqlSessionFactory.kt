@@ -16,7 +16,7 @@ import kotlin.jvm.Throws
 @Configuration
 @MapperScan(
     basePackages = [
-        "com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper"
+        "com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper"
     ],
     sqlSessionTemplateRef = "SqlSessionTemplate"
 )
