@@ -16,6 +16,10 @@ class Email(_mail: String) {
         throw e
     }
 
+    override fun toString(): String {
+        return mail
+    }
+
     /**
      * 等価判定
      */
