@@ -1,17 +1,17 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao
+package com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper
 
 import java.sql.JDBCType
 import java.util.Date
 import org.mybatis.dynamic.sql.SqlTable
 
-object RolesDynamicSqlSupport {
-    object Roles : SqlTable("roles") {
-        val id = column<Long>("id", JDBCType.BIGINT)
+object UsersDynamicSqlSupport {
+    object Users : SqlTable("users") {
+        val uuid = column<String>("uuid", JDBCType.CHAR)
 
-        val name = column<String>("name", JDBCType.VARCHAR)
+        val email = column<String>("email", JDBCType.VARCHAR)
 
         val createdAt = column<Date>("created_at", JDBCType.TIMESTAMP)
 

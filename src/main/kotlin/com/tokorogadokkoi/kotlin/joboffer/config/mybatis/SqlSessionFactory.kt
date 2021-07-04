@@ -9,46 +9,46 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver
+import org.springframework.core.io.ClassPathResource
 import javax.sql.DataSource
 import kotlin.jvm.Throws
 
 @Configuration
 @MapperScan(
     basePackages = [
-        "com.tokorogadokkoi.kotlin.joboffer.infra.mysql",
+        "com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper"
     ],
     sqlSessionTemplateRef = "SqlSessionTemplate"
 )
-class SqlSessionFactory(private val propertyHolder: MyBatisPropertyHolder) {
-    companion object {
-        const val MAPPER_XML_PATH = "classpath:com/tokorogadokkoi/kotlin/**/mybatis-config.xml"
-    }
+class SqlSessionFactory(private val propertyHolder: PropertyHolder) {
 
+    // DataSource
     @Bean(name = ["DataSource"])
     @ConfigurationProperties(prefix = "spring.datasource")
     fun dataSource(): DataSource? {
-        val dataSource =  PooledDataSource()
-        dataSource.url = propertyHolder.url
-        dataSource.username = propertyHolder.username
-        dataSource.password = propertyHolder.password
-        dataSource.driver = propertyHolder.driverClassName
-
-        return dataSource
+        return PooledDataSource().apply {
+            url = propertyHolder.url
+            username = propertyHolder.username
+            password = propertyHolder.password
+            driver = propertyHolder.driverClassName
+        }
     }
 
+    // Sql Session Factory
     @Bean(name = ["SqlSessionFactory"])
     @Throws(Exception::class)
     fun sqlSessionFactory(@Qualifier("DataSource") dataSource: DataSource?): SqlSessionFactory? {
         val bean = SqlSessionFactoryBean()
         bean.setDataSource(dataSource)
-        bean.setMapperLocations(*PathMatchingResourcePatternResolver().getResources(MAPPER_XML_PATH))
+        bean.setConfigLocation(ClassPathResource("mybatis/mybatis-config.xml"))
+
         return bean.`object`
     }
 
-    @Bean(name = ["SqlSesisonTemplate"])
+    // Sql Session Template
+    @Bean(name = ["SqlSessionTemplate"])
     @Throws(java.lang.Exception::class)
-    fun sqlSessionTemplate(@Qualifier("SqlSessionFactory") sqlSessionFactory: SqlSessionFactory?): SqlSessionTemplate? {
+    fun sqlSessionTemplate(@Qualifier("SqlSessionFactory") sqlSessionFactory: SqlSessionFactory): SqlSessionTemplate {
         return SqlSessionTemplate(sqlSessionFactory)
     }
 }

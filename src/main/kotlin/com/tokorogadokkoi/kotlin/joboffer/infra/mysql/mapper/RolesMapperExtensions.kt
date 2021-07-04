@@ -1,14 +1,14 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao
+package com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper
 
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.RolesDynamicSqlSupport.Roles
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.RolesDynamicSqlSupport.Roles.createdAt
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.RolesDynamicSqlSupport.Roles.id
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.RolesDynamicSqlSupport.Roles.name
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.RolesDynamicSqlSupport.Roles.updatedAt
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dto.RolesRecord
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.RolesDynamicSqlSupport.Roles
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.RolesDynamicSqlSupport.Roles.createdAt
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.RolesDynamicSqlSupport.Roles.id
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.RolesDynamicSqlSupport.Roles.name
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.RolesDynamicSqlSupport.Roles.updatedAt
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.records.RolesRecord
 import org.mybatis.dynamic.sql.SqlBuilder.isEqualTo
 import org.mybatis.dynamic.sql.util.kotlin.*
 import org.mybatis.dynamic.sql.util.kotlin.mybatis3.*

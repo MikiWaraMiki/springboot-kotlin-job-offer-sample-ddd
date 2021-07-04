@@ -13,7 +13,7 @@ internal class UserTest {
         fun `メールアドレスが変更できること`() {
             val expectedEmail = Email("hogehoge@example.com")
             val user = User(
-                UserID(),
+                UserID.generateUserId(),
                 Email("fugafuga@example.com"),
                 UserHavingRoleList()
             )
@@ -30,7 +30,7 @@ internal class UserTest {
         @Test
         fun `ユーザIDとメールアドレスが同一の場合はtrueを返すこと`() {
             val email = Email("hogehoge@exmaple.com")
-            val userId = UserID()
+            val userId = UserID.generateUserId()
             val user = User(
                 userId,
                 email,
@@ -50,13 +50,13 @@ internal class UserTest {
         fun `ユーザIDが異なる場合はfalseを返すこと`() {
             val email = Email("hogehoge@exmaple.com")
             val user = User(
-                UserID(),
+                UserID.generateUserId(),
                 email,
                 UserHavingRoleList()
             )
 
             val otherUser = User(
-                UserID(),
+                UserID.generateUserId(),
                 email,
                 UserHavingRoleList()
             )
@@ -66,7 +66,7 @@ internal class UserTest {
 
         @Test
         fun `メールアドレスが異なる場合はfalseを返すこと`() {
-            val userId = UserID()
+            val userId = UserID.generateUserId()
             val user = User(
                 userId,
                 Email("hogehoge@exmaple.com"),

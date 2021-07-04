@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS user_connection_informations (
-    id bigint NOT NULL PRIMARY KEY,
+    id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
     user_uuid CHAR(26) NOT NULL,
     connection_type VARCHAR(256) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

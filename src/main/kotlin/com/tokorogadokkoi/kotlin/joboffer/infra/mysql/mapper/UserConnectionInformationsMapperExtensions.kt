@@ -1,15 +1,15 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao
+package com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper
 
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.connectionType
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.createdAt
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.id
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.updatedAt
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.userUuid
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dto.UserConnectionInformationsRecord
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.connectionType
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.createdAt
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.id
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.updatedAt
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.userUuid
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.records.UserConnectionInformationsRecord
 import org.mybatis.dynamic.sql.SqlBuilder.isEqualTo
 import org.mybatis.dynamic.sql.util.kotlin.*
 import org.mybatis.dynamic.sql.util.kotlin.mybatis3.*

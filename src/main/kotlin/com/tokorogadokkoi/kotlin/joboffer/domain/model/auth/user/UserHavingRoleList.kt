@@ -21,7 +21,7 @@ class UserHavingRoleList {
      * @param role 保持しているか判定を行うロール
      */
     fun hasRole(targetRole: Role): Boolean {
-        val result = roleList.firstOrNull { role -> role == targetRole
+        roleList.firstOrNull { role -> role == targetRole
         } ?: return false
 
         return true

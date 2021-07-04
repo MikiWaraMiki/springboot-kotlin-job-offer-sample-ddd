@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 @Component
 @Configuration
 @ConfigurationProperties(prefix = "spring.datasource")
-class MyBatisPropertyHolder {
+class PropertyHolder {
     lateinit var username: String
     lateinit var password: String
     lateinit var url: String

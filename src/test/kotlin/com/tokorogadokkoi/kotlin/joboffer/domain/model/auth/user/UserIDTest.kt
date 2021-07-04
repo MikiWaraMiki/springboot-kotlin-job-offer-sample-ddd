@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 internal class UserIDTest {
     @Test
     fun `IDが生成されること`() {
-        val ulid = UserID()
+        val ulid = UserID.generateUserId()
         Assertions.assertThat(ulid.toString()).isNotNull
         Assertions.assertThat(ulid.toString().length).isEqualTo(26)
     }
@@ -18,16 +18,16 @@ internal class UserIDTest {
     inner class EqualsTest {
         @Test
         fun `同じIDの場合はtrueを返すこと`() {
-            val userId = UserID()
+            val userId = UserID.generateUserId()
 
-            Assertions.assertThat(userId == userId).isTrue()
+            Assertions.assertThat(userId == userId).isTrue
         }
 
         @Test
         fun `異なるIDの場合はfalseを返すこと`() {
-            val userId = UserID()
+            val userId = UserID.generateUserId()
 
-            Assertions.assertThat(userId == UserID()).isFalse()
+            Assertions.assertThat(userId == UserID.generateUserId()).isFalse
         }
     }
 }

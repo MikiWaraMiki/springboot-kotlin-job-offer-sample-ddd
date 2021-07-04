@@ -5,6 +5,8 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/job_offer_test?characterEncoding=utf8
     username: root
     password: password
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
 logging:
-  level: DEBUG
+  level:
+    root: INFO
+    org.springframework.web: DEBUG

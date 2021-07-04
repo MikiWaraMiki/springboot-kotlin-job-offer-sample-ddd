@@ -17,19 +17,13 @@
             <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
         <javaModelGenerator
-                targetPackage="com.tokorogadokkoi.kotlin.joboffer.infra.mysql"
+                targetPackage="com.tokorogadokkoi.kotlin.joboffer.infra.mysql.records"
                 targetProject="src/main/kotlin"
         >
             <property name="enableSubPackages" value="true"/>
         </javaModelGenerator>
-        <sqlMapGenerator
-                targetPackage="com.tokorogadokkoi.kotlin.joboffer.infra.mysql"
-                targetProject="src/main/resources"
-        >
-            <property name="enableSubPackages" value="true"/>
-        </sqlMapGenerator>
         <javaClientGenerator
-                targetPackage="com.tokorogadokkoi.kotlin.joboffer.infra.mysql"
+                targetPackage="com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper"
                 targetProject="src/main/kotlin"
                 type="XMLMAPPER"
         >

@@ -1,7 +1,7 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dto
+package com.tokorogadokkoi.kotlin.joboffer.infra.mysql.records
 
 import java.util.Date
 

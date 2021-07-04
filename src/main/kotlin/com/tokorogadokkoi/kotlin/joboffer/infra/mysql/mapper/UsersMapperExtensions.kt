@@ -1,14 +1,14 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao
+package com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper
 
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UsersDynamicSqlSupport.Users
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UsersDynamicSqlSupport.Users.createdAt
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UsersDynamicSqlSupport.Users.email
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UsersDynamicSqlSupport.Users.updatedAt
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dao.UsersDynamicSqlSupport.Users.uuid
-import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.dto.UsersRecord
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UsersDynamicSqlSupport.Users
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UsersDynamicSqlSupport.Users.createdAt
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UsersDynamicSqlSupport.Users.email
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UsersDynamicSqlSupport.Users.updatedAt
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper.UsersDynamicSqlSupport.Users.uuid
+import com.tokorogadokkoi.kotlin.joboffer.infra.mysql.records.UsersRecord
 import org.mybatis.dynamic.sql.SqlBuilder.isEqualTo
 import org.mybatis.dynamic.sql.util.kotlin.*
 import org.mybatis.dynamic.sql.util.kotlin.mybatis3.*
@@ -65,6 +65,11 @@ fun UsersMapper.selectDistinct(completer: SelectCompleter) =
 fun UsersMapper.selectByPrimaryKey(uuid_: String) =
     selectOne {
         where(uuid, isEqualTo(uuid_))
+    }
+
+fun UsersMapper.selectByEmail(email_: String) =
+    selectOne {
+        where(email, isEqualTo(email_))
     }
 
 fun UsersMapper.update(completer: UpdateCompleter) =
