@@ -18,25 +18,33 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	// Kotlin
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	// Spring
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")
+	implementation("com.github.guepardoapps:kulid:2.0.0.0")
+	// Redis
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	implementation("org.springframework.session:spring-session-data-redis")
+	// Flyway
 	implementation("org.flywaydb:flyway-core")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	// MyBatis
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0")
 	implementation("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.2.1")
 	mybatisGenerator("org.mybatis.generator:mybatis-generator-core:1.4.0")
-	implementation("org.springframework.session:spring-session-data-redis")
-	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")
-	implementation("com.github.guepardoapps:kulid:2.0.0.0")
-	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	implementation("mysql:mysql-connector-java")
+	// Development
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	// Test
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
+	testImplementation("org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.2.0")
 }
 
 tasks.withType<KotlinCompile> {
