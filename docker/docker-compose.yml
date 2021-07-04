@@ -1,5 +1,15 @@
 version: "3"
 services:
+  nuxt:
+    build:
+      context: ..
+      dockerfile: ./docker/nuxt/Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - ../front/job-offer-front:/usr/src/app
+    env_file:
+      - './nuxt/env/.env.development'
   db:
     image: mysql:5.7
     environment:
@@ -7,8 +17,9 @@ services:
     ports:
       - '3306:3306'
     volumes:
+      - ./db/init-sql:/docker-entrypoint-initdb.d
       - ./db/mysql/volumes:/var/lib/mysql
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
   redis:
     image: redis:latest
     ports:

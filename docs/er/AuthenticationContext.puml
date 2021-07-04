@@ -42,17 +42,21 @@ namespace auth {
             namespace user {
                 class User {
                     userId: UserID
-                    mail: UserMail
+                    email:
                 }
                 class UserID {
                     +id: string
                 }
-                class UserAuthToken {
-                    +token: string
-                }
-                class Mail {
+                class Email {
                     +address: string
                     changeMail()
+                }
+                class ConnectionType {
+                    +(uuid: UserId)
+                    +(connectionType: List<ConnectionTypeEnum>)
+                }
+                class ConnectionTypeEnum {
+                    +(connectionTypeName: string)
                 }
                 class UserRole {
                     +userId: UserID
@@ -101,8 +105,9 @@ auth.domain.model.user.IFUserRepository <|.right. auth.repository.mysql.user.Use
 auth.domain.model.user.IFUserRoleRepository <|.right. auth.repository.mysql.user.UserRoleRepository
 ' has one
 auth.domain.model.user.User *-up- auth.domain.model.user.UserID
-auth.domain.model.user.User *-up- auth.domain.model.user.Mail
+auth.domain.model.user.User *-up- auth.domain.model.user.Email
 auth.domain.model.user.User *-up- auth.domain.model.user.UserRole
-auth.domain.model.user.User *-up- auth.domain.model.user.UserAuthToken
+auth.domain.model.user.User *-up- auth.domain.model.user.ConnectionType
+auth.domain.model.user.ConnectionType *-left- auth.domain.model.user.ConnectionTypeEnum
 auth.domain.model.user.UserRole *-left- auth.domain.model.role.Role
 @enduml

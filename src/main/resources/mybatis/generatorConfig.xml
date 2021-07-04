@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="MySQLJobOffer" targetRuntime="MyBatis3Kotlin">
+        <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin" />
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+        <jdbcConnection
+                driverClass="com.mysql.cj.jdbc.Driver"
+                connectionURL="jdbc:mysql://127.0.0.1:3306/job_offer_dev"
+                userId="root"
+                password="password"
+        >
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+        <javaModelGenerator
+                targetPackage="com.tokorogadokkoi.kotlin.joboffer.infra.mysql.records"
+                targetProject="src/main/kotlin"
+        >
+            <property name="enableSubPackages" value="true"/>
+        </javaModelGenerator>
+        <javaClientGenerator
+                targetPackage="com.tokorogadokkoi.kotlin.joboffer.infra.mysql.mapper"
+                targetProject="src/main/kotlin"
+                type="XMLMAPPER"
+        >
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="users"/>
+        <table tableName="roles"/>
+        <table tableName="user_connection_informations"/>
+        <table tableName="users_roles"/>
+    </context>
+</generatorConfiguration>
