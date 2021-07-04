@@ -1,4 +1,4 @@
-package com.tokorogadokkoi.kotlin.joboffer.auth.mysql.repository
+package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.repository
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

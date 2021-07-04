@@ -1,15 +1,15 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper
+package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper
 
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.connectionType
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.createdAt
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.id
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.updatedAt
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.userUuid
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.records.UserConnectionInformationsRecord
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.connectionType
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.createdAt
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.id
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.updatedAt
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UserConnectionInformationsDynamicSqlSupport.UserConnectionInformations.userUuid
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records.UserConnectionInformationsRecord
 import org.mybatis.dynamic.sql.SqlBuilder.isEqualTo
 import org.mybatis.dynamic.sql.util.kotlin.*
 import org.mybatis.dynamic.sql.util.kotlin.mybatis3.*

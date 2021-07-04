@@ -1,9 +1,9 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper
+package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper
 
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.records.UsersRecord
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records.UsersRecord
 import org.apache.ibatis.annotations.DeleteProvider
 import org.apache.ibatis.annotations.InsertProvider
 import org.apache.ibatis.annotations.Mapper

@@ -1,4 +1,4 @@
-package com.tokorogadokkoi.kotlin.joboffer.auth.mysql.repository
+package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.repository
 
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user.Email
 import com.tokorogadokkoi.kotlin.joboffer.helper.annotation.MybatisMapperTest

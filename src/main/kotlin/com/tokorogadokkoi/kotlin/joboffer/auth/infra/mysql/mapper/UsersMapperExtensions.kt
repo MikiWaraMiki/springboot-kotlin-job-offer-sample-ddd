@@ -1,14 +1,14 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper
+package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper
 
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UsersDynamicSqlSupport.Users
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UsersDynamicSqlSupport.Users.createdAt
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UsersDynamicSqlSupport.Users.email
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UsersDynamicSqlSupport.Users.updatedAt
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UsersDynamicSqlSupport.Users.uuid
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.records.UsersRecord
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UsersDynamicSqlSupport.Users
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UsersDynamicSqlSupport.Users.createdAt
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UsersDynamicSqlSupport.Users.email
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UsersDynamicSqlSupport.Users.updatedAt
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UsersDynamicSqlSupport.Users.uuid
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records.UsersRecord
 import org.mybatis.dynamic.sql.SqlBuilder.isEqualTo
 import org.mybatis.dynamic.sql.util.kotlin.*
 import org.mybatis.dynamic.sql.util.kotlin.mybatis3.*

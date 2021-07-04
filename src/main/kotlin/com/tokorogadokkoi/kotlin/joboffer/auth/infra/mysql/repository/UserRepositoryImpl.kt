@@ -1,9 +1,9 @@
-package com.tokorogadokkoi.kotlin.joboffer.auth.mysql.repository
+package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.repository
 
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user.*
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.UsersMapper
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper.selectByEmail
-import com.tokorogadokkoi.kotlin.joboffer.auth.mysql.records.UsersRecord
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UsersMapper
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.selectByEmail
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records.UsersRecord
 import org.springframework.stereotype.Repository
 
 @Suppress("SpringJavaInjectionPointsAutowiringInspection")

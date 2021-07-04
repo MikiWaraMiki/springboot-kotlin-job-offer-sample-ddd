@@ -1,7 +1,7 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package com.tokorogadokkoi.kotlin.joboffer.auth.mysql.mapper
+package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper
 
 import java.sql.JDBCType
 import java.util.Date

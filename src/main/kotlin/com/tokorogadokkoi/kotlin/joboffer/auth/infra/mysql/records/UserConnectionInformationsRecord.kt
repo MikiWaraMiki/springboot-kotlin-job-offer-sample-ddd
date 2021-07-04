@@ -1,13 +1,14 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package com.tokorogadokkoi.kotlin.joboffer.auth.mysql.records
+package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records
 
 import java.util.Date
 
-data class UsersRolesRecord(
+data class UserConnectionInformationsRecord(
+    var id: Long? = null,
     var userUuid: String? = null,
-    var roleId: Long? = null,
+    var connectionType: String? = null,
     var createdAt: Date? = null,
     var updatedAt: Date? = null
 )
