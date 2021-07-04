@@ -4,6 +4,7 @@
 package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper
 
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.RolesDynamicSqlSupport.Roles
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.RolesDynamicSqlSupport.Roles.allColumns
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.RolesDynamicSqlSupport.Roles.createdAt
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.RolesDynamicSqlSupport.Roles.id
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.RolesDynamicSqlSupport.Roles.name
@@ -65,6 +66,11 @@ fun RolesMapper.selectDistinct(completer: SelectCompleter) =
 fun RolesMapper.selectByPrimaryKey(id_: Long) =
     selectOne {
         where(id, isEqualTo(id_))
+    }
+
+fun RolesMapper.selectByName(name_: String) =
+    selectOne {
+        where(name, isEqualTo(name_))
     }
 
 fun RolesMapper.update(completer: UpdateCompleter) =

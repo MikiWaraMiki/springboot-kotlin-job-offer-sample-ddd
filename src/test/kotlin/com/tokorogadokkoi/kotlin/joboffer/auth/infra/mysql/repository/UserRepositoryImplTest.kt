@@ -16,7 +16,6 @@ import org.springframework.test.context.jdbc.SqlConfig
 import org.springframework.transaction.annotation.Transactional
 
 @MybatisMapperTest
-@Transactional
 @Import(UserRepositoryImpl::class)
 class UserRepositoryImplTest {
     @Autowired
@@ -31,6 +30,13 @@ class UserRepositoryImplTest {
             val user = userRepository.findByEmail(Email("user1@example.com"))
 
             Assertions.assertThat(user).isNotNull
+        }
+
+        @Test
+        @Sql(scripts = ["classpath:sql/test-user-data.sql"], config = SqlConfig(encoding = "utf-8"))
+        fun `ユーザが存在しない場合は、nullを返すこと`() {
+            val user = userRepository.findByEmail(Email("hogehoge@hoge.com"))
+            Assertions.assertThat(user).isNull()
         }
     }
 
