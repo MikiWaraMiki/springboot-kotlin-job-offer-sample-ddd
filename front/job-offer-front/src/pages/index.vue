@@ -2,25 +2,10 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">job-offer-front</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <h1 class="title">JobOffer</h1>
+      <p @click="login">
+        ログイン
+      </p>
     </div>
   </div>
 </template>
@@ -28,7 +13,17 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  methods: {
+    login() {
+      try {
+        this.$auth.loginWith('auth0')
+      } catch(e) {
+        console.error(e)
+      }
+    }
+  }
+})
 </script>
 
 <style>

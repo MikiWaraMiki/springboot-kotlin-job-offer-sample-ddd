@@ -49,14 +49,13 @@ const config: NuxtConfig = {
       auth0: {
         domain: process.env.AUTH0_DOMAIN_NAME,
         clientId: process.env.AUTH0_CLIENT_ID,
-        //audience: process.env.AUTH0_AUDIENCE,
         responseType: 'code',
         grantType: 'authorization_code',
         codeChallengeMethod: 'S256'
       }
     },
     redirect: {
-      login: '/login',
+      login: '/',
       logout: '/logout',
       callback: '/callback',
       home: '/mypage'
