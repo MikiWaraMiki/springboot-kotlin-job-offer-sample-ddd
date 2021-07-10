@@ -5,8 +5,8 @@ import com.tokorogadokkoi.kotlin.joboffer.auth.application.exception.UserIsAlrea
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.role.RoleCategory
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.role.RoleRepository
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user.*
-import com.tokorogadokkoi.kotlin.joboffer.auth.presentation.user.UserRegistrationRequest
-import com.tokorogadokkoi.kotlin.joboffer.auth.presentation.user.UserRegistrationResponse
+import com.tokorogadokkoi.kotlin.joboffer.auth.presentation.api.user.UserRegistrationRequest
+import com.tokorogadokkoi.kotlin.joboffer.auth.presentation.api.user.UserRegistrationResponse
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -18,6 +18,8 @@ class UserRegistrationService(
 ) {
     /**
      * 求人応募システムのユーザ登録を行う
+     * @param request コントローラに送信されたリクエストパラメータ
+     * @param response 登録処理が成功した際のレスポンスボディ
      */
     @Transactional
     fun registrationUser(request: UserRegistrationRequest): UserRegistrationResponse {

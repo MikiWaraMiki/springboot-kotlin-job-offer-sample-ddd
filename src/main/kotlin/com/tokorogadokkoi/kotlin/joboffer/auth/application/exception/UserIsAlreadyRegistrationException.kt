@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.ExceptionHandler
  */
 class UserIsAlreadyRegistrationException(
     val statusCode: String = "400",
-    val msg: String? = "メールアドレスはすでに登録済みです。"
+    val msg: String? = "メールアドレスはすでに登録済みです"
 ) : RuntimeException(msg)
