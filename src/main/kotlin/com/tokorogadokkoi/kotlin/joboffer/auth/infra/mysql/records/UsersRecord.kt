@@ -4,8 +4,6 @@
 package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records
 
 import java.sql.Timestamp
-import java.time.LocalDateTime
-import java.util.Date
 
 data class UsersRecord(
     var uuid: String? = null,

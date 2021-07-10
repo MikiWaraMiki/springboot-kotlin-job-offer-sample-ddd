@@ -34,7 +34,7 @@ class UserRepositoryImplTest {
 
         @Test
         @Sql(scripts = ["classpath:sql/test-user-data.sql"], config = SqlConfig(encoding = "utf-8"))
-        fun `ユーザが存在しない場合は、nullを返すこと`() {
+        fun `ユーザが存在しない場合はnullを返すこと`() {
             val user = userRepository.findByEmail(Email("hogehoge@hoge.com"))
             Assertions.assertThat(user).isNull()
         }
