@@ -6,7 +6,10 @@ import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user.UserRoleReposit
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UsersRolesMapper
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.insert
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records.UsersRolesRecord
+import org.springframework.stereotype.Repository
 
+@Suppress("SpringJavaInjectionPointsAutowiringInspection")
+@Repository
 class UserRoleRepositoryImpl(
     val mapper: UsersRolesMapper
 ): UserRoleRepository {
