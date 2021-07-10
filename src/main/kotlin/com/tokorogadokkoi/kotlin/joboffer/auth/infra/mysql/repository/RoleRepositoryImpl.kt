@@ -7,13 +7,16 @@ import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.select
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.selectByName
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.selectOne
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records.RolesRecord
+import org.springframework.stereotype.Repository
 
+@Suppress("SpringJavaInjectionPointsAutowiringInspection")
+@Repository
 class RoleRepositoryImpl(
     private val rolesMapper: RolesMapper
 ): RoleRepository {
 
     /**
-     * 全てのロールを取得
+     * 名前でロールを取得
      */
     override fun findByName(roleName: String): Role? {
         return rolesMapper.selectByName(roleName)?.let {
