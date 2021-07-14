@@ -1,6 +1,5 @@
 package com.tokorogadokkoi.kotlin.joboffer.auth.application.user
 
-import com.tokorogadokkoi.kotlin.joboffer.auth.application.exception.InternalException
 import com.tokorogadokkoi.kotlin.joboffer.auth.application.exception.UserIsAlreadyRegistrationException
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.role.RoleCategory
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.role.RoleRepository
@@ -9,6 +8,7 @@ import com.tokorogadokkoi.kotlin.joboffer.auth.presentation.api.user.UserRegistr
 import com.tokorogadokkoi.kotlin.joboffer.auth.presentation.api.user.UserRegistrationResponse
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.lang.RuntimeException
 
 @Service
 class UserRegistrationService(
@@ -36,8 +36,7 @@ class UserRegistrationService(
             userHavingRoleList
         )
         val userRole = roleRepository.findByName(RoleCategory.USER.roleName)
-            ?: throw InternalException(
-                "500",
+            ?: throw RuntimeException(
                 "求人応募システムユーザ用のロールデータが登録されていません。"
             )
         user.addRole(userRole)
