@@ -5,7 +5,6 @@ import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.role.Role
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.role.RoleCategory
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.role.RoleRepository
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user.*
-import com.tokorogadokkoi.kotlin.joboffer.auth.presentation.api.user.UserRegistrationRequest
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -84,6 +83,22 @@ internal class UserRegistrationServiceTest {
             }
 
             Assertions.assertThat(exception.message).isEqualTo("メールアドレスの入力は必須です")
+        }
+    }
+
+    @Nested
+    @DisplayName("リクエストしたロール名が存在しない場合")
+    inner class RoleIsNotExistTest() {
+        fun `エラーが発生すること`() {
+            val email = "example@example.com"
+            whenever(userRepository.findByEmail(any () as Email)).thenReturn(null)
+            whenever(roleRepository.findByName(any() as String)).thenReturn(null)
+
+            val exception = assertThrows<RuntimeException> {
+                userRegistrationService.registrationUser(email, "not_found")
+            }
+
+            Assertions.assertThat(exception.message).isEqualTo("not_foundはデータベースに登録されていません")
         }
     }
 

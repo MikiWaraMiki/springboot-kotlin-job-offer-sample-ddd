@@ -38,7 +38,7 @@ class UserRegistrationService(
         )
         val userRole = roleRepository.findByName(RoleCategory.USER.roleName)
             ?: throw RuntimeException(
-                "求人応募システムユーザ用のロールデータが登録されていません。"
+                "${roleName}はデータベースに登録されていません。"
             )
         user.addRole(userRole)
 
