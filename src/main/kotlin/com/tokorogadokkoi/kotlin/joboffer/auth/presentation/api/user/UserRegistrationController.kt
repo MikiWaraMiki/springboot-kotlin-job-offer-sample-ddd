@@ -16,7 +16,7 @@ class UserRegistrationController(
      */
     @PostMapping("/registration")
     fun registration(@RequestBody request: UserRegistrationRequest): UserRegistrationResponse {
-        return  userRegistrationService.registrationUser(request)
+        return  userRegistrationService.registrationUser(request.email, "user")
     }
 
     

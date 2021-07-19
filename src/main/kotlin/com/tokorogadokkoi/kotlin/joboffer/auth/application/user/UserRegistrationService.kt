@@ -17,17 +17,18 @@ class UserRegistrationService(
     private val userRoleRepository: UserRoleRepository
 ) {
     /**
-     * 求人応募システムのユーザ登録を行う
-     * @param request コントローラに送信されたリクエストパラメータ
-     * @param response 登録処理が成功した際のレスポンスボディ
+     * システムのユーザ登録を行う
+     * @param email 登録するメールアドレス
+     * @param roleName 登録するロール名
      */
     @Transactional
-    fun registrationUser(request: UserRegistrationRequest): UserRegistrationResponse {
-        val email = Email(request.email)
+    fun registrationUser(email: String, roleName: String): UserRegistrationResponse {
+        val email = Email(email)
 
         if (userRepository.findByEmail(email) != null) {
             throw UserIsAlreadyRegistrationException()
         }
+
         val userId = UserID.generateUserId()
         val userHavingRoleList = UserHavingRoleList()
         val user = User(

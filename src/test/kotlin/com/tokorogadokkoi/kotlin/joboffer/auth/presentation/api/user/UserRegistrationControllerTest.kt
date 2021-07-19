@@ -51,7 +51,7 @@ class UserRegistrationControllerTest {
             expectedResponse
         )
 
-        whenever(userRegistrationService.registrationUser(request)).thenReturn(
+        whenever(userRegistrationService.registrationUser(email, "user")).thenReturn(
             expectedResponse
         )
 
@@ -78,7 +78,7 @@ class UserRegistrationControllerTest {
             email
         )
 
-        whenever(userRegistrationService.registrationUser(request)).thenThrow(
+        whenever(userRegistrationService.registrationUser(email, "user")).thenThrow(
             IllegalArgumentException("メールアドレス以外が入力されています")
         )
         val resultResponse = mockMvc.perform(
@@ -101,7 +101,7 @@ class UserRegistrationControllerTest {
             email
         )
 
-        whenever(userRegistrationService.registrationUser(request)).thenThrow(
+        whenever(userRegistrationService.registrationUser(email, "user")).thenThrow(
             UserIsAlreadyRegistrationException()
         )
 

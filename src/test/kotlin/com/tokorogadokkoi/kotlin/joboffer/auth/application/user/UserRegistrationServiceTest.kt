@@ -40,11 +40,8 @@ internal class UserRegistrationServiceTest {
             whenever(userRepository.findByEmail(any() as Email)).thenReturn(null)
             whenever(roleRepository.findByName(any() as String)).thenReturn(role)
 
-            val request = UserRegistrationRequest(
-                email = email.toString()
-            )
 
-            val response = userRegistrationService.registrationUser(request)
+            val response = userRegistrationService.registrationUser(email.toString(), "user")
 
             Assertions.assertThat(response.email).isEqualTo(email.toString())
         }
@@ -61,12 +58,9 @@ internal class UserRegistrationServiceTest {
             whenever(userRepository.findByEmail(any() as Email)).thenReturn(null)
             whenever(roleRepository.findByName(any() as String)).thenReturn(role)
 
-            val request = UserRegistrationRequest(
-                email = "hogehogehoge"
-            )
 
             val exception = assertThrows<IllegalArgumentException> {
-                userRegistrationService.registrationUser(request)
+                userRegistrationService.registrationUser("hogehoge", "user")
             }
 
             Assertions.assertThat(exception.message).isEqualTo("メールアドレス以外が入力されています")
@@ -84,12 +78,9 @@ internal class UserRegistrationServiceTest {
             whenever(userRepository.findByEmail(any() as Email)).thenReturn(null)
             whenever(roleRepository.findByName(any() as String)).thenReturn(role)
 
-            val request = UserRegistrationRequest(
-                email = ""
-            )
 
             val exception = assertThrows<IllegalArgumentException> {
-                userRegistrationService.registrationUser(request)
+                userRegistrationService.registrationUser("", "user")
             }
 
             Assertions.assertThat(exception.message).isEqualTo("メールアドレスの入力は必須です")
@@ -113,12 +104,8 @@ internal class UserRegistrationServiceTest {
             whenever(userRepository.findByEmail(any() as Email)).thenReturn(user)
             whenever(roleRepository.findByName(any() as String)).thenReturn(role)
 
-            val request = UserRegistrationRequest(
-                email = email.toString()
-            )
-
             val exception = assertThrows<UserIsAlreadyRegistrationException> {
-                userRegistrationService.registrationUser(request)
+                userRegistrationService.registrationUser(email.toString(), "user")
             }
 
             Assertions.assertThat(exception.statusCode).isEqualTo("400")
