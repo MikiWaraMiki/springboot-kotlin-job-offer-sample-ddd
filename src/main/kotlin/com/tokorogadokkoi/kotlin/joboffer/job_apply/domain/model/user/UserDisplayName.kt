@@ -22,6 +22,10 @@ class UserDisplayName(_name: String) {
         name = _name
     }
 
+    override fun toString(): String {
+        return name
+    }
+
     private fun isLengthWithIn30(_name: String): Boolean {
         return _name.length <= 30
     }
