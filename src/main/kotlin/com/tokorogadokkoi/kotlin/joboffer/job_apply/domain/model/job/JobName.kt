@@ -23,6 +23,10 @@ class JobName(_name: String) {
         return name
     }
 
+    override fun hashCode(): Int {
+        return name.hashCode()
+    }
+
     private fun isNameLengthWithIn100(_name: String): Boolean {
         return _name.length <= 100
     }
