@@ -6,3 +6,5 @@ spring:
       test:
         - application-test
     default: dev
+  flyway:
+    locations: "classpath:db/migration"

@@ -4,6 +4,7 @@ plugins {
 	id("org.springframework.boot") version "2.5.0"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	id("com.arenagod.gradle.MybatisGenerator") version "1.4"
+	id("org.flywaydb.flyway") version "7.11.3"
 	kotlin("jvm") version "1.5.10"
 	kotlin("plugin.spring") version "1.5.10"
 }
@@ -68,4 +69,10 @@ mybatisGenerator {
 	dependencies {
 		mybatisGenerator("mysql:mysql-connector-java")
 	}
+}
+
+flyway {
+	url = System.getenv("DB_URL") ?: "jdbc:mysql://127.0.0.1:3306/job_offer_dev"
+	user = System.getenv("DB_USERNAME") ?: "root"
+	password = System.getenv("DB_PASSWORD") ?: "password"
 }
