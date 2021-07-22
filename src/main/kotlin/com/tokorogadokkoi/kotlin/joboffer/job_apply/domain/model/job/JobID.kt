@@ -5,7 +5,7 @@ import java.math.BigInteger
 /**
  * 職種IDクラス
  */
-class JobID(val id: BigInteger) {
+class JobID(val id: Int) {
 
     override fun toString(): String {
         return id.toString()
