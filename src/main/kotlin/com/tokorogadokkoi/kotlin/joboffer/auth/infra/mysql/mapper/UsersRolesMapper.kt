@@ -3,15 +3,9 @@
  */
 package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper
 
+import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records.RolesRecord
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records.UsersRolesRecord
-import org.apache.ibatis.annotations.DeleteProvider
-import org.apache.ibatis.annotations.InsertProvider
-import org.apache.ibatis.annotations.Mapper
-import org.apache.ibatis.annotations.Result
-import org.apache.ibatis.annotations.ResultMap
-import org.apache.ibatis.annotations.Results
-import org.apache.ibatis.annotations.SelectProvider
-import org.apache.ibatis.annotations.UpdateProvider
+import org.apache.ibatis.annotations.*
 import org.apache.ibatis.type.JdbcType
 import org.mybatis.dynamic.sql.delete.render.DeleteStatementProvider
 import org.mybatis.dynamic.sql.insert.render.InsertStatementProvider
@@ -19,6 +13,7 @@ import org.mybatis.dynamic.sql.insert.render.MultiRowInsertStatementProvider
 import org.mybatis.dynamic.sql.select.render.SelectStatementProvider
 import org.mybatis.dynamic.sql.update.render.UpdateStatementProvider
 import org.mybatis.dynamic.sql.util.SqlProviderAdapter
+import java.sql.JDBCType
 
 @Mapper
 interface UsersRolesMapper {

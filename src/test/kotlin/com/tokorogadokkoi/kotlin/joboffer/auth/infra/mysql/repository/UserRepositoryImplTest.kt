@@ -1,6 +1,9 @@
 package com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.repository
 
 import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user.Email
+import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user.User
+import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user.UserHavingRoleList
+import com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.user.UserID
 import com.tokorogadokkoi.kotlin.joboffer.helper.annotation.MybatisMapperTest
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.DisplayName
@@ -13,7 +16,6 @@ import org.springframework.test.context.jdbc.SqlConfig
 import org.springframework.transaction.annotation.Transactional
 
 @MybatisMapperTest
-@Transactional
 @Import(UserRepositoryImpl::class)
 class UserRepositoryImplTest {
     @Autowired
@@ -28,6 +30,36 @@ class UserRepositoryImplTest {
             val user = userRepository.findByEmail(Email("user1@example.com"))
 
             Assertions.assertThat(user).isNotNull
+        }
+
+        @Test
+        @Sql(scripts = ["classpath:sql/test-user-data.sql"], config = SqlConfig(encoding = "utf-8"))
+        fun `ユーザが存在しない場合はnullを返すこと`() {
+            val user = userRepository.findByEmail(Email("hogehoge@hoge.com"))
+            Assertions.assertThat(user).isNull()
+        }
+    }
+
+    @Nested
+    @DisplayName("insertUserのテスト")
+    inner class InsertUserTest() {
+        @Test
+        fun `DBにレコードが登録されること`() {
+            val uuid = UserID.generateUserId()
+            val email = Email("sample@example.com")
+            val user = User(
+                _email = email,
+                _userID = uuid,
+                _havingRoleList = UserHavingRoleList()
+            )
+            userRepository.insertUser(user)
+
+            val registeredUser = userRepository.findByEmail(email)
+
+            Assertions.assertThat(registeredUser).isNotNull
+            Assertions.assertThat(registeredUser?.email).isEqualTo(email)
+            Assertions.assertThat(registeredUser?.userId).isEqualTo(uuid)
+
         }
     }
 }

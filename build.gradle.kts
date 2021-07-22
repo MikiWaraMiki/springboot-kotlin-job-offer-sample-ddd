@@ -45,6 +45,8 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 	testImplementation("org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.2.0")
+	testImplementation("org.mockito:mockito-core:3.8.0")
+	testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
 }
 
 tasks.withType<KotlinCompile> {

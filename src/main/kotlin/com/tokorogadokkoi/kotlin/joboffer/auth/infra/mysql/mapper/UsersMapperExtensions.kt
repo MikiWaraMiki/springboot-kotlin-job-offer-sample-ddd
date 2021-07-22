@@ -9,6 +9,7 @@ import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UsersDynamicSq
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UsersDynamicSqlSupport.Users.updatedAt
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.mapper.UsersDynamicSqlSupport.Users.uuid
 import com.tokorogadokkoi.kotlin.joboffer.auth.infra.mysql.records.UsersRecord
+import org.apache.ibatis.annotations.Select
 import org.mybatis.dynamic.sql.SqlBuilder.isEqualTo
 import org.mybatis.dynamic.sql.util.kotlin.*
 import org.mybatis.dynamic.sql.util.kotlin.mybatis3.*
@@ -67,7 +68,7 @@ fun UsersMapper.selectByPrimaryKey(uuid_: String) =
         where(uuid, isEqualTo(uuid_))
     }
 
-fun UsersMapper.selectByEmail(email_: String) =
+fun UsersMapper.selectByEmail(email_: String)  =
     selectOne {
         where(email, isEqualTo(email_))
     }

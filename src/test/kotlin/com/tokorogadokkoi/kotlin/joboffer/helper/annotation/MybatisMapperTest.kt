@@ -7,9 +7,11 @@ import org.mybatis.spring.boot.test.autoconfigure.MybatisTest
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.context.annotation.Import
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.transaction.annotation.Transactional
 
 @ExtendWith(SpringExtension::class)
 @MybatisTest
+@Transactional
 @AutoConfigureTestDatabase(
     replace = AutoConfigureTestDatabase.Replace.NONE
 )

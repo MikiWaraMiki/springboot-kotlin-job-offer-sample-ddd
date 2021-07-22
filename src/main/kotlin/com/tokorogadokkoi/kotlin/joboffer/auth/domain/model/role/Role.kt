@@ -3,8 +3,8 @@ package com.tokorogadokkoi.kotlin.joboffer.auth.domain.model.role
 /**
  * ロールクラス
  */
-class Role(private val id: Int, _name: String) {
-    private val name: String
+class Role(val id: Int, _name: String) {
+    val name: String
 
     init {
         validateName(_name)
